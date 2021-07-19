@@ -47,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   rightSelected = false;
                   leftSelected = true;
 
+                  _replyWidget();
                 });
               },
               child: Container(
@@ -63,35 +64,55 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               background: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
-                    color: Colors.grey[300]),
-                child: ListTile(
-                  leading: Container(
-                    width: 12.0,
-                    height: 12.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: leftSelected ? Colors.blue[500] : Colors.grey[600],
-                    ),
-                  ),
-                  trailing: Container(
-                    width: 12.0,
-                    height: 12.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: rightSelected
-                          ? Colors.lightGreen[500]
-                          : Colors.grey[600],
-                    ),
-                  ),
-                ),
-              ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(8.0),
+                      ),
+                      color: Colors.grey[300]),
+                  child: Positioned(
+                    bottom: 10,
+                    child: _replyWidget(),
+                  )),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _replyWidget() {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
+        color: Colors.white,
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: Stack(
+          children: [
+            Container(
+              padding: EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade100,
+                border: Border(
+                  left: BorderSide(color: Colors.purple, width: 3),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Text('Reply',
+                      style: TextStyle(
+                          color: Colors.purple,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500)),
+                  SizedBox(height: 3),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_swipeable/chat_detail_screen.dart';
 import 'package:flutter_swipeable/home_screen.dart';
 
 void main() {
@@ -12,10 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.green,
       ),
-      home: HomeScreen(),
+      home: ChatDetailScreen(),
     );
   }
 }
